@@ -1,0 +1,70 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+    def versioningFile = file('version.properties')
+    if (versioningFile.canRead()) {
+        def Properties versionProperties = new Properties()
+        versionProperties.load(new FileInputStream(versioningFile))
+        def value = 0
+        def runTasks = gradle.startParameter.taskNames
+        if ('assemble' in runTasks || 'assembleRelease' in runTasks || 'aR' in runTasks) {
+            value = 1
+        }
+        def versionMajor = 1
+        def versionMinor = 0
+        def versionPatch = versionProperties['VERSION_PATCH'].toInteger() + value
+        def versionBuild = versionProperties['VERSION_BUILD'].toInteger() + 1
+        def versionNumber = versionProperties['VERSION_NUMBER'].toInteger() + value
+        versionProperties['VERSION_PATCH'] = versionPatch.toString()
+        versionProperties['VERSION_BUILD'] = versionBuild.toString()
+        versionProperties['VERSION_NUMBER'] = versionNumber.toString()
+        versionProperties.store(versioningFile.newWriter(), null)
+        defaultConfig {
+            applicationId "com.example.testing.myapplication"
+            minSdkVersion 16
+            targetSdkVersion 25
+            versionCode versionNumber
+            versionName "${versionMajor}.${versionMinor}.${versionPatch} (${versionBuild}) Release"
+            testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        }
+
+        applicationVariants.all {
+            variant ->
+                variant.outputs.each {
+                    output ->
+                        def fileNaming = "apk/RELEASES"
+                        def outputFile = output.outputFile
+                        if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                            output.outputFile = new File(getProject().getRootDir(), "${fileNaming}-${versionMajor}.${versionMinor}.${versionPatch}-${outputFile.name}")
+                        }
+
+                }
+        }
+    } else {
+        throw new GradleException("can't read versioning file")
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    compile 'com.squareup.retrofit2:retrofit:2.3.0'
+    testCompile 'junit:junit:4.12'
+    androidTestCompile 'com.android.support.test:runner:0.5'
+    androidTestCompile 'com.android.support:support-annotations:25.3.1'
+    androidTestCompile 'com.android.support.test:rules:0.5'
+}
