@@ -21,7 +21,7 @@ public class RetrofitClient {
     public Retrofit build() {
         //TODO Parametrize the base URL
         return new Retrofit.Builder()
-                .baseUrl(Constants.API_BASE_URL)
+                .baseUrl("")
                 .client(getHttpClient())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
