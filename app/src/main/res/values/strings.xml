@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="time_out_err_msg">Timeout!!! Confirm that you have a working internet connection</string>
+    <string name="network_err">Internet connection is not available</string>
 </resources>
