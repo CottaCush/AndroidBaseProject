@@ -15,10 +15,11 @@ import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
 
-import com.cottacush.fbn.android.R;
-import com.cottacush.fbn.android.utils.DateUtils;
-import com.cottacush.fbn.android.utils.MessageUtils;
-import com.cottacush.fbn.android.utils.NetworkUtils;
+
+import com.example.testing.myapplication.R;
+import com.example.testing.myapplication.utils.DateUtils;
+import com.example.testing.myapplication.utils.MessageUtils;
+import com.example.testing.myapplication.utils.NetworkUtils;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
