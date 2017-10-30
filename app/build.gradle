@@ -8,7 +8,7 @@ android {
     def versionPatch = 0
     def versionNumber = 0
     defaultConfig {
-        applicationId "com.example.testing.myapplication"
+        applicationId "com.cottacush.android.libraries"
         minSdkVersion 16
         targetSdkVersion 25
         versionCode versionNumber
