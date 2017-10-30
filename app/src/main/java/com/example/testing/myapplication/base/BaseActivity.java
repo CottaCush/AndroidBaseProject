@@ -11,14 +11,11 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
 import com.example.testing.myapplication.R;
-import com.example.testing.myapplication.utils.JsendResponse;
+import com.example.testing.myapplication.utils.HttpResponseUtils;
 import com.example.testing.myapplication.utils.MessageUtils;
 import com.example.testing.myapplication.utils.NetworkUtils;
 
 import butterknife.Unbinder;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public abstract class BaseActivity<T extends BasePresenter> extends AppCompatActivity implements BaseView<T> {
 
@@ -58,7 +55,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
         if (dialog != null) {
             dialog.dismiss();
         }
-        showErrorDialog(JsendResponse.ERROR_MESSAGE);
+        showErrorDialog(HttpResponseUtils.ERROR_MESSAGE);
         t.printStackTrace();
     }
 

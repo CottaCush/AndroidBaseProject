@@ -15,14 +15,31 @@ import com.example.testing.myapplication.R;
 
 public class MessageUtils {
 
+    /**
+     *
+     * @param view
+     * @param message
+     */
     public static void showMessage(View view, String message) {
         Snackbar.make(view, message, Snackbar.LENGTH_LONG).show();
     }
 
+    /**
+     *
+     * @param view
+     * @param message
+     */
     public static void showMessageIndef(View view, String message) {
         Snackbar.make(view, message, Snackbar.LENGTH_INDEFINITE).show();
     }
 
+    /**
+     *
+     * @param view
+     * @param message
+     * @param action
+     * @param listener
+     */
     public static void showMessage(View view, String message,String action, View.OnClickListener listener) {
 
         Context context = view.getContext();

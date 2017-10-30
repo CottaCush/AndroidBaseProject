@@ -12,13 +12,11 @@ import android.view.View;
  */
 
 public abstract class BackButtonFragment<T extends BasePresenter> extends BaseFragment<T> {
-
     BaseActivity baseActivity;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setHasOptionsMenu(true);
     }
 
     @Override
@@ -31,12 +29,4 @@ public abstract class BackButtonFragment<T extends BasePresenter> extends BaseFr
         }
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            baseActivity.onBackPressed();
-            return true;
-        }
-        return false;
-    }
 }
