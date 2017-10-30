@@ -32,7 +32,7 @@ import butterknife.Unbinder;
 /**
  * A simple {@link Fragment} subclass.
  */
-public abstract class BaseFragment<T extends BasePresenter> extends Fragment implements BaseView<T>{
+public abstract class BaseFragment<T extends BasePresenter> extends Fragment implements BaseView<T> {
 
     private Unbinder unbinder;
 
@@ -57,7 +57,7 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment imp
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        BaseActivity baseActivity = (BaseActivity)getActivity();
+        BaseActivity baseActivity = (BaseActivity) getActivity();
         ActionBar actionBar = baseActivity.getSupportActionBar();
         if (actionBar != null) {
             baseActivity.setDrawerIconToHome();
@@ -86,11 +86,12 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment imp
 
     @Override
     public void showLoading() {
-        ((BaseActivity)getActivity()).showLoading();
+        ((BaseActivity) getActivity()).showLoading();
     }
+
     @Override
     public void dismissLoading() {
-        ((BaseActivity)getActivity()).dismissLoading();
+        ((BaseActivity) getActivity()).dismissLoading();
     }
 
     @Override
@@ -100,12 +101,12 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment imp
 
     @Override
     public void showSnackBarMessage(View view, String message) {
-        MessageUtils.showMessage(view,message);
+        MessageUtils.showMessage(view, message);
     }
 
     @Override
     public void showError(String message) {
-        ((BaseActivity)getActivity()).showError(message);
+        ((BaseActivity) getActivity()).showError(message);
     }
 
     @Override
@@ -115,7 +116,7 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment imp
 
     @Override
     public void hideKeyboard() {
-        ((BaseActivity)getActivity()).hideKeyboard();
+        ((BaseActivity) getActivity()).hideKeyboard();
     }
 
     @Override

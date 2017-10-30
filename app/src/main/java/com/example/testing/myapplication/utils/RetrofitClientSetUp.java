@@ -15,8 +15,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * @author Adegoke Obasa <goke@cottacush.com>
  */
 
-public class RetrofitClient {
-    public static final String OAUTH_SERVICE = "oauth_service";
+public class RetrofitClientSetUp {
+    private int TIMEOUT = 1;
 
     public Retrofit build() {
         //TODO Parametrize the base URL
@@ -37,7 +37,6 @@ public class RetrofitClient {
                     public okhttp3.Response intercept(Chain chain) throws IOException {
                         Request original = chain.request();
                         HttpUrl originalHttpUrl = original.url();
-
                         HttpUrl url = originalHttpUrl.newBuilder()
                                 .addQueryParameter("access_token", "")
                                 .build();
@@ -50,9 +49,13 @@ public class RetrofitClient {
                         return chain.proceed(request);
                     }
                 })
-                .connectTimeout(1, TimeUnit.MINUTES)
+                .connectTimeout(TIMEOUT, TimeUnit.MINUTES)
                 .readTimeout(2, TimeUnit.MINUTES)
                 .writeTimeout(2, TimeUnit.MINUTES)
                 .build();
+    }
+
+    private void setTimeout(int timeout) {
+        TIMEOUT = timeout;
     }
 }

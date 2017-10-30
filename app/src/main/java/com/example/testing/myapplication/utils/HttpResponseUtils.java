@@ -13,43 +13,61 @@ import okhttp3.ResponseBody;
  * @author Adegoke Obasa <goke@cottacush.com>
  */
 
-public class JsendResponse {
+public class HttpResponseUtils {
 
     private JsonElement successBody;
     private JSONObject errorBody;
 
     public static final String ERROR_MESSAGE = "An unexpected network error occurred.";
 
-    public JsendResponse(JsonElement successBody, ResponseBody errorBody) {
+    /**
+     * @param successBody
+     * @param errorBody
+     */
+    public HttpResponseUtils(JsonElement successBody, ResponseBody errorBody) {
         this.successBody = successBody;
         if (errorBody != null) {
             try {
-                if (errorBody != null) {
-                    this.errorBody = new JSONObject(errorBody.string());
-                }
+                this.errorBody = new JSONObject(errorBody.string());
+
             } catch (JSONException | IOException e) {
                 e.printStackTrace();
             }
         }
     }
 
+    /**
+     * @return
+     */
     public boolean isSuccess() {
         return (successBody != null && successBody.getAsJsonObject().has("status") &&
                 successBody.getAsJsonObject().get("status").getAsString().equalsIgnoreCase("success"));
     }
 
+    /**
+     * @return
+     */
     public JsonElement getData() {
         return successBody.getAsJsonObject().get("data");
     }
 
+    /**
+     * @return
+     */
     public JsonElement getDataAsObject() {
         return successBody.getAsJsonObject().get("data").getAsJsonObject();
     }
 
+    /**
+     * @return
+     */
     public JsonElement getDataAsArray() {
         return successBody.getAsJsonObject().get("data").getAsJsonArray();
     }
 
+    /**
+     * @return
+     */
     public String getErrorMessage() {
         if (errorBody == null) {
             return ERROR_MESSAGE;
@@ -62,6 +80,9 @@ public class JsendResponse {
         return ERROR_MESSAGE;
     }
 
+    /**
+     * @return
+     */
     public String getCode() {
         if (errorBody == null) {
             return "-1";
