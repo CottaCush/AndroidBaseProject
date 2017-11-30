@@ -1,7 +1,7 @@
 /local.properties
 .DS_Store
 /build
-*/.idea
+ .idea
  .idea/modules.xml
 
 # Built application files
