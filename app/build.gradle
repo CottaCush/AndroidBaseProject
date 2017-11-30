@@ -32,8 +32,24 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    productFlavors {
+        development {
+            applicationId defaultConfig.applicationId + ".development"
+            versionName defaultConfig.versionName + "-development"
+        }
+        staging {
+            applicationId defaultConfig.applicationId + ".staging"
+            versionName defaultConfig.versionName + "-staging"
+        }
+        production {
+            applicationId defaultConfig.applicationId + ".production"
+            versionName defaultConfig.versionName + "-production"
         }
     }
 }
@@ -46,7 +62,7 @@ dependencies {
 
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.github.CottaCush:AndroidCommons:-SNAPSHOT'
+    compile 'com.github.CottaCush:AndroidCommons:v1.1.2'
     testCompile 'junit:junit:4.12'
 }
 
