@@ -1,4 +1,5 @@
-package com.example.testing.myapplication;
+package com.cottacush.android.baseProject;
+
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
