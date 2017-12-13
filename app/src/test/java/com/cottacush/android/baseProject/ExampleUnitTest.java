@@ -1,4 +1,4 @@
-package com.example.testing.myapplication;
+package com.cottacush.android.baseProject;
 
 import org.junit.Test;
 
