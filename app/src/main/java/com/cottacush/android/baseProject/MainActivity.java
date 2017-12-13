@@ -1,4 +1,4 @@
-package com.example.testing.myapplication;
+package com.cottacush.android.baseProject;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
