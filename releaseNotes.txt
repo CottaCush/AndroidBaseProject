@@ -1,0 +1,2 @@
+This should contain release note of the build.
+Fabric should be setup already

@@ -46,10 +46,15 @@ android {
         staging {
             applicationId defaultConfig.applicationId + ".staging"
             versionName defaultConfig.versionName + "-staging"
+            ext.betaDistributionReleaseNotesFilePath="releaseNotes.txt"
+            ext.betaDistributionEmailsFilePath="stagingTesters.txt"
         }
         production {
             applicationId defaultConfig.applicationId + ".production"
             versionName defaultConfig.versionName + "-production"
+            ext.betaDistributionReleaseNotesFilePath="releaseNotes.txt"
+            ext.betaDistributionEmailsFilePath="productionTesters.txt"
+
         }
     }
 }
