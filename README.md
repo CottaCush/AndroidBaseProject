@@ -2,7 +2,6 @@
 A base project to fast track mobile development.This project is setup to implement the Model-View-Presenter
 architecture for mobile development, it is also suggested to follow the packaging by feature style of structure.
 
-Run  ``` gradle assembleRelease crashlyticsUploadDistributionRelease``` to distribute build via crashlytics to testers
 
 
 

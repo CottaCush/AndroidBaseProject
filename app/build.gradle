@@ -23,8 +23,15 @@ android {
                 output ->
                     def fileNaming = "apk/RELEASES"
                     def outputFile = output.outputFile
+                    if (variant.name.equalsIgnoreCase("staging") || variant.name.
+                            equalsIgnoreCase("production")) {
+                        def task = tasks.create("assembleRelease " +
+                                "crashlyticsUploadDistributionRelease")
+                        task.mustRunAfter("clean")
+                    }
                     if (outputFile != null && outputFile.name.endsWith('.apk')) {
-                        output.outputFile = new File(getProject().getRootDir(), "${fileNaming}-${versionMajor}.${versionMinor}.${versionPatch}-${outputFile.name}")
+                        output.outputFile = new File(getProject().getRootDir(), "${fileNaming}-" +
+                                "${versionMajor}.${versionMinor}.${versionPatch}-${outputFile.name}")
                     }
 
             }
@@ -46,14 +53,14 @@ android {
         staging {
             applicationId defaultConfig.applicationId + ".staging"
             versionName defaultConfig.versionName + "-staging"
-            ext.betaDistributionReleaseNotesFilePath="releaseNotes.txt"
-            ext.betaDistributionEmailsFilePath="stagingTesters.txt"
+            ext.betaDistributionReleaseNotesFilePath = "releaseNotes.txt"
+            ext.betaDistributionEmailsFilePath = "stagingTesters.txt"
         }
         production {
             applicationId defaultConfig.applicationId + ".production"
             versionName defaultConfig.versionName + "-production"
-            ext.betaDistributionReleaseNotesFilePath="releaseNotes.txt"
-            ext.betaDistributionEmailsFilePath="productionTesters.txt"
+            ext.betaDistributionReleaseNotesFilePath = "releaseNotes.txt"
+            ext.betaDistributionEmailsFilePath = "productionTesters.txt"
 
         }
     }
@@ -73,6 +80,6 @@ dependencies {
 
 allprojects {
     repositories {
-        maven {url 'https://jitpack.io'}
+        maven { url 'https://jitpack.io' }
     }
 }
