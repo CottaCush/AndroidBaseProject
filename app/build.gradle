@@ -2,7 +2,12 @@ apply plugin: 'com.android.application'
 apply from: '../config/quality.gradle'
 
 
+static def releaseTime() {
+    return new Date().format("MMM dd yyyy", TimeZone.getTimeZone("UTC"))
+}
+
 android {
+    flavorDimensions "default"
     compileSdkVersion 26
     buildToolsVersion '26.0.2'
     def versionMajor = 1
@@ -21,13 +26,13 @@ android {
 
     applicationVariants.all {
         variant ->
-            variant.outputs.each {
+            variant.outputs.all {
                 output ->
-                    def fileNaming = "apk/RELEASES"
                     def outputFile = output.outputFile
-                    if (outputFile != null && outputFile.name.endsWith('.apk')) {
-                        output.outputFile = new File(getProject().getRootDir(), "${fileNaming}-${versionMajor}.${versionMinor}.${versionPatch}-${outputFile.name}")
-                    }
+                    def releaseType = "Staging"
+                    def apkReleasePrefix = "App Name ${releaseType}"
+                    def fileNaming = "apk/${apkReleasePrefix}"
+                    outputFileName = "${fileNaming}-${versionName}-${releaseTime()}-${outputFile.name}"
 
             }
     }
@@ -62,12 +67,9 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
-    compile 'com.android.support:appcompat-v7:25.3.1'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.github.CottaCush:AndroidCommons:v1.1.2'
     compile 'com.android.support:appcompat-v7:25.4.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.github.CottaCush:AndroidCommons:-SNAPSHOT'
+    compile 'com.github.CottaCush:AndroidCommons:v1.1.2'
     testCompile 'junit:junit:4.12'
 }
 
