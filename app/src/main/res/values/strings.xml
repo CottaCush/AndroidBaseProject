@@ -3,4 +3,10 @@
     <string name="time_out_err_msg">Timeout!!! Confirm that you have a working internet connection</string>
     <string name="network_err">Internet connection is not available</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="close">Close</string>
+    <string name="authenticating_user">Authenticating, please wait…</string>
+    <string name="authenticating_failed">Authentication failed, please restart the application</string>
+    <string name="please_wait">Please Wait…</string>
+    <string name="api_response_error">Error occurred while loading data</string>
+
 </resources>
