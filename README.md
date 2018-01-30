@@ -5,6 +5,7 @@ architecture for mobile development, it is also suggested to follow the packagin
 
 
 
+
 ## Libraries Setup Include:
    - [Android Support Library:25.3.1](https://developer.android.com/topic/libraries/support-library/revisions.html)
    - [Retrofit Networking](http://square.github.io/retrofit/)
