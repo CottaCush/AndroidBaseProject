@@ -1,4 +1,4 @@
-package com.example.testing.myapplication.base;
+package com.cottacush.android.baseProject.base;
 
 /**
  * Created by Jubril on 9/19/17.

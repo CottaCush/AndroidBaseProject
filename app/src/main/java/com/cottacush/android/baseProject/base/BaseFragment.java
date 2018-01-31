@@ -1,4 +1,4 @@
-package com.example.testing.myapplication.base;
+package com.cottacush.android.baseProject.base;
 
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;

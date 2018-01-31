@@ -1,4 +1,4 @@
-package com.example.testing.myapplication.base;
+package com.cottacush.android.baseProject.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
