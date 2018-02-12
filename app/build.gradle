@@ -2,19 +2,18 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    buildToolsVersion '26.0.2'
     def versionMajor = 1
     def versionMinor = 0
     def versionPatch = 0
     def versionNumber = 0
     defaultConfig {
-        applicationId "com.example.testing.myapplication"
+        applicationId "com.cottacush.android.example"
         minSdkVersion 16
         targetSdkVersion 25
         versionCode versionNumber
         versionName "${versionMajor}.${versionMinor}.${versionPatch} Release"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
     }
 
     applicationVariants.all {
@@ -30,10 +29,9 @@ android {
                         task.mustRunAfter("clean")
                     }
                     if (outputFile != null && outputFile.name.endsWith('.apk')) {
-                        output.outputFile = new File(getProject().getRootDir(), "${fileNaming}-" +
+                        output.outputFileName = new File(getProject().getRootDir(), "${fileNaming}-" +
                                 "${versionMajor}.${versionMinor}.${versionPatch}-${outputFile.name}")
                     }
-
             }
     }
 
@@ -45,36 +43,40 @@ android {
         }
     }
 
+    flavorDimensions "default"
     productFlavors {
         development {
-            applicationId defaultConfig.applicationId + ".development"
-            versionName defaultConfig.versionName + "-development"
+            dimension "default"
+            applicationIdSuffix ".development"
+            versionNameSuffix "-development"
+            buildConfigField("String", "ENVIRONMENT", "\"development\"")
         }
         staging {
-            applicationId defaultConfig.applicationId + ".staging"
-            versionName defaultConfig.versionName + "-staging"
+            dimension "default"
+            applicationIdSuffix ".staging"
+            versionNameSuffix "-staging"
+            buildConfigField("String", "ENVIRONMENT", "\"staging\"")
             ext.betaDistributionReleaseNotesFilePath = "releaseNotes.txt"
             ext.betaDistributionEmailsFilePath = "stagingTesters.txt"
         }
         production {
-            applicationId defaultConfig.applicationId + ".production"
-            versionName defaultConfig.versionName + "-production"
+            dimension "default"
+            buildConfigField("String", "ENVIRONMENT", "\"production\"")
             ext.betaDistributionReleaseNotesFilePath = "releaseNotes.txt"
             ext.betaDistributionEmailsFilePath = "productionTesters.txt"
-
         }
     }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
-    compile 'com.android.support:appcompat-v7:25.3.1'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.github.CottaCush:AndroidCommons:v1.1.2'
+    implementation 'com.android.support:appcompat-v7:25.3.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation 'com.github.CottaCush:AndroidCommons:v1.1.2'
     testCompile 'junit:junit:4.12'
 }
 
