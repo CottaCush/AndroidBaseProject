@@ -15,7 +15,6 @@ import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
 
-import com.cottacush.android.libraries.base.BaseActivity;
 import com.cottacush.android.libraries.utils.DateUtils;
 import com.cottacush.android.libraries.utils.MessageUtils;
 import com.cottacush.android.libraries.utils.NetworkUtils;
@@ -89,6 +88,17 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment imp
     public void showLoading() {
         ((BaseActivity)getActivity()).showLoading();
     }
+
+    @Override
+    public void showLoading(int progressMessage) {
+        ((BaseActivity)getActivity()).showLoading(progressMessage);
+    }
+
+    @Override
+    public void showLoading(String progressMessage) {
+        ((BaseActivity)getActivity()).showLoading(progressMessage);
+    }
+
     @Override
     public void dismissLoading() {
         ((BaseActivity)getActivity()).dismissLoading();

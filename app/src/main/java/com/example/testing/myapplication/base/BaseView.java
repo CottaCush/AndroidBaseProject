@@ -12,9 +12,11 @@ public interface BaseView<T extends BasePresenter> {
 
     void showLoading();
 
-    void dismissLoading();
+    void showLoading(@StringRes int progressMessage);
 
-    void setPresenter(T presenter);
+    void showLoading(String progressMessage);
+
+    void dismissLoading();
 
     void showError(@StringRes int resId);
 

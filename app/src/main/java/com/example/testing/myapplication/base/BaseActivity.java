@@ -5,16 +5,18 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.StringRes;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
-
-import com.cottacush.android.libraries.base.BasePresenter;
-import com.cottacush.android.libraries.base.BaseView;
+import android.widget.TextView;
+;
 import com.cottacush.android.libraries.utils.HttpResponseUtils;
 import com.cottacush.android.libraries.utils.MessageUtils;
 import com.cottacush.android.libraries.utils.NetworkUtils;
+import com.cottacush.android.libraries.utils.ViewUtils;
 
 import butterknife.Unbinder;
 
@@ -97,22 +99,6 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
     }
 
     @Override
-    public void showLoading() {
-        if (dialog == null) {
-            dialog = new ProgressDialog(this);
-        }
-        dialog.setMessage("Please wait...");
-        dialog.setCancelable(false);
-        dialog.setCanceledOnTouchOutside(false);
-        dialog.show();
-    }
-
-    @Override
-    public void dismissLoading() {
-        dialog.dismiss();
-    }
-
-    @Override
     public void showError(@StringRes int resId) {
         showError(getString(resId));
     }
@@ -161,7 +147,33 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
         this.unbinder = unbinder;
     }
 
-    public abstract void setDrawerIconToBack();
+    public  void setDrawerIconToBack(){}
 
-    public abstract void setDrawerIconToHome();
+    public void setDrawerIconToHome() {}
+
+    /*
+    The below  methods can be called from any Activity
+    that implements BaseView and extends from this Activity.
+    The required arguments should be bound to the said Activity,
+    and passed as arguments.
+     */
+
+    public void configureProgressViews(int progressMessage, TextView progressTextView,
+                                       ConstraintLayout progressBarRoot) {
+        configureProgressViews(getString(progressMessage), progressTextView, progressBarRoot);
+    }
+
+    public void configureProgressViews(String progressMessage, TextView progressTextView, ConstraintLayout progressBarRoot ) {
+        progressTextView.setText(progressMessage);
+        if (progressBarRoot.getVisibility() != View.VISIBLE) {
+            ViewUtils.show(progressBarRoot);
+            getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+                    WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+        }
+    }
+
+    public void disconfigureProgressViews(ConstraintLayout progressBarRoot) {
+        ViewUtils.hide(progressBarRoot);
+        getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+    }
 }

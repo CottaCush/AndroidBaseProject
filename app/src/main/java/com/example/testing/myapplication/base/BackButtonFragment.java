@@ -5,7 +5,6 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.view.View;
 
-import com.cottacush.android.libraries.base.BaseActivity;
 
 
 /**
@@ -13,7 +12,7 @@ import com.cottacush.android.libraries.base.BaseActivity;
  */
 
 public abstract class BackButtonFragment<T extends BasePresenter> extends BaseFragment<T> {
-    com.cottacush.android.libraries.base.BaseActivity baseActivity;
+    BaseActivity baseActivity;
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
