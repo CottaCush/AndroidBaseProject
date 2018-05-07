@@ -26,7 +26,6 @@ import java.util.Locale;
 
 import butterknife.Unbinder;
 
-
 /**
  * A simple {@link Fragment} subclass.
  */

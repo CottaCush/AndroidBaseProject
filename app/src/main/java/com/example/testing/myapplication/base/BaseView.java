@@ -3,11 +3,6 @@ package com.example.testing.myapplication.base;
 import android.support.annotation.StringRes;
 import android.view.View;
 
-
-/**
- * Created by Jubril on 9/19/17.
- */
-
 public interface BaseView<T extends BasePresenter> {
 
     void showLoading();
