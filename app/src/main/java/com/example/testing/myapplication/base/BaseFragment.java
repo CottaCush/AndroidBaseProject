@@ -84,26 +84,6 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment imp
     }
 
     @Override
-    public void showLoading() {
-        ((BaseActivity)getActivity()).showLoading();
-    }
-
-    @Override
-    public void showLoading(int progressMessage) {
-        ((BaseActivity)getActivity()).showLoading(progressMessage);
-    }
-
-    @Override
-    public void showLoading(String progressMessage) {
-        ((BaseActivity)getActivity()).showLoading(progressMessage);
-    }
-
-    @Override
-    public void dismissLoading() {
-        ((BaseActivity)getActivity()).dismissLoading();
-    }
-
-    @Override
     public void showError(@StringRes int resId) {
         showError(getString(resId));
     }

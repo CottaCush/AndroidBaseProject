@@ -118,6 +118,8 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
         return NetworkUtils.isNetworkConnected(this);
     }
 
+
+
     @Override
     public void hideKeyboard() {
         // Check if no view has focus:
@@ -151,7 +153,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
 
     public void setDrawerIconToHome() {}
 
-    /*
+        /*
     The below  methods can be called from any Activity
     that implements BaseView and extends from this Activity.
     The required arguments should be bound to the said Activity,
