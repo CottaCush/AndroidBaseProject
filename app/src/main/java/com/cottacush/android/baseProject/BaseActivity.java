@@ -1,4 +1,4 @@
-package com.example.testing.myapplication.base;
+package com.cottacush.android.baseProject;
 
 import android.app.ProgressDialog;
 import android.content.Context;
