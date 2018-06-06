@@ -13,5 +13,4 @@ public class MainActivity extends AppCompatActivity {
 
         Log.d("TESTING Build config", BuildConfig.ENVIRONMENT);
     }
-
 }

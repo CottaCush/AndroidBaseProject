@@ -15,7 +15,6 @@ import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
 
-import com.cottacush.android.libraries.base.BaseActivity;
 import com.cottacush.android.libraries.utils.DateUtils;
 import com.cottacush.android.libraries.utils.MessageUtils;
 import com.cottacush.android.libraries.utils.NetworkUtils;
@@ -26,7 +25,6 @@ import java.util.Date;
 import java.util.Locale;
 
 import butterknife.Unbinder;
-
 
 /**
  * A simple {@link Fragment} subclass.
@@ -83,15 +81,6 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment imp
         ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(title);
         ((AppCompatActivity) getActivity()).getSupportActionBar().
                 setBackgroundDrawable(colorDrawable);
-    }
-
-    @Override
-    public void showLoading() {
-        ((BaseActivity)getActivity()).showLoading();
-    }
-    @Override
-    public void dismissLoading() {
-        ((BaseActivity)getActivity()).dismissLoading();
     }
 
     @Override
