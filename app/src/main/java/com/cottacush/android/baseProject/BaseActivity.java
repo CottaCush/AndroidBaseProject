@@ -22,7 +22,6 @@ import butterknife.Unbinder;
 
 public abstract class BaseActivity<T extends BasePresenter> extends AppCompatActivity
         implements BaseView<T> {
-
     private Unbinder unbinder;
     private ProgressDialog dialog;
     private int timeOutErrResourceId;
@@ -64,7 +63,6 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
         showErrorDialog(HttpResponseUtils.ERROR_MESSAGE);
         t.printStackTrace();
     }
-
 
     public AlertDialog showAlertDialog(String title, String message,
                                        String positiveText, DialogInterface.OnClickListener
@@ -121,7 +119,6 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
     public boolean isNetworkConnected() {
         return NetworkUtils.isNetworkConnected(this);
     }
-
 
     @Override
     public void hideKeyboard() {
