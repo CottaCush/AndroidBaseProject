@@ -11,3 +11,9 @@ architecture for mobile development, it is also suggested to follow the packagin
    - [Retrofit Networking](http://square.github.io/retrofit/)
    - [Butterknife:8.8.1](http://jakewharton.github.io/butterknife/)
 
+
+
+
+
+## Contribution guide
+    - [Guide to contributing to CottaCush Android Projects](https://github.com/CottaCush/android-guidelines/blob/master/project_style_guidelines.md)

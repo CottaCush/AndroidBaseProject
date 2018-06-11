@@ -64,9 +64,11 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
         t.printStackTrace();
     }
 
-    public AlertDialog showAlertDialog(String title, String message,
-                                       String positiveText, DialogInterface.OnClickListener
-                                               positiveClickListener, String negativeText,
+    public AlertDialog showAlertDialog(String title,
+                                       String message,
+                                       String positiveText,
+                                       DialogInterface.OnClickListener positiveClickListener,
+                                       String negativeText,
                                        DialogInterface.OnClickListener negativeClickListener) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this)
                 .setMessage(message)
