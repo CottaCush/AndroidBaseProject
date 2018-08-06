@@ -56,7 +56,7 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment imp
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        BaseActivity baseActivity = (BaseActivity)getActivity();
+        BaseActivity baseActivity = (BaseActivity) getActivity();
         ActionBar actionBar = baseActivity.getSupportActionBar();
         if (actionBar != null) {
             baseActivity.setDrawerIconToHome();
@@ -95,7 +95,7 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment imp
 
     @Override
     public void showError(String message) {
-        ((BaseActivity)getActivity()).showError(message);
+        ((BaseActivity) getActivity()).showError(message);
     }
 
     @Override
@@ -105,7 +105,7 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment imp
 
     @Override
     public void hideKeyboard() {
-        ((BaseActivity)getActivity()).hideKeyboard();
+        ((BaseActivity) getActivity()).hideKeyboard();
     }
 
     @Override

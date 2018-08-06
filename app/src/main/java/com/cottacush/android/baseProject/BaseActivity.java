@@ -20,8 +20,8 @@ import com.cottacush.android.libraries.utils.ViewUtils;
 
 import butterknife.Unbinder;
 
-public abstract class BaseActivity<T extends BasePresenter> extends AppCompatActivity implements BaseView<T> {
-
+public abstract class BaseActivity<T extends BasePresenter> extends AppCompatActivity
+        implements BaseView<T> {
     private Unbinder unbinder;
     private ProgressDialog dialog;
     private int timeOutErrResourceId;
@@ -64,9 +64,12 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
         t.printStackTrace();
     }
 
-
-    public AlertDialog showAlertDialog(String title, String message, String positiveText, DialogInterface.OnClickListener
-            positiveClickListener, String negativeText, DialogInterface.OnClickListener negativeClickListener) {
+    public AlertDialog showAlertDialog(String title,
+                                       String message,
+                                       String positiveText,
+                                       DialogInterface.OnClickListener positiveClickListener,
+                                       String negativeText,
+                                       DialogInterface.OnClickListener negativeClickListener) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this)
                 .setMessage(message)
                 .setTitle(title)
@@ -80,7 +83,8 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
         return dialog;
     }
 
-    public AlertDialog showSuccessDialog(String message, DialogInterface.OnClickListener positiveClickListener) {
+    public AlertDialog showSuccessDialog(String message, DialogInterface.OnClickListener
+            positiveClickListener) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this)
                 .setMessage(message)
                 .setPositiveButton("Ok", positiveClickListener);
@@ -118,8 +122,6 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
         return NetworkUtils.isNetworkConnected(this);
     }
 
-
-
     @Override
     public void hideKeyboard() {
         // Check if no view has focus:
@@ -149,9 +151,13 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
         this.unbinder = unbinder;
     }
 
-    public  void setDrawerIconToBack(){}
+    public void setDrawerIconToBack() {
 
-    public void setDrawerIconToHome() {}
+    }
+
+    public void setDrawerIconToHome() {
+
+    }
 
         /*
     The below  methods can be called from any Activity
@@ -165,7 +171,8 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
         configureProgressViews(getString(progressMessage), progressTextView, progressBarRoot);
     }
 
-    public void configureProgressViews(String progressMessage, TextView progressTextView, ConstraintLayout progressBarRoot ) {
+    public void configureProgressViews(String progressMessage, TextView progressTextView,
+                                       ConstraintLayout progressBarRoot) {
         progressTextView.setText(progressMessage);
         if (progressBarRoot.getVisibility() != View.VISIBLE) {
             ViewUtils.show(progressBarRoot);
