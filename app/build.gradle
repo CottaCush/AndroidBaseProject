@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 apply from: '../config/quality.gradle'
 
 android {
-    compileSdkVersion 25
+    compileSdkVersion 27
     buildToolsVersion '26.0.2'
     def versionMajor = 1
     def versionMinor = 0
@@ -11,7 +11,7 @@ android {
     defaultConfig {
         applicationId "com.cottacush.android.example"
         minSdkVersion 16
-        targetSdkVersion 25
+        targetSdkVersion 27
         versionCode versionNumber
         versionName "${versionMajor}.${versionMinor}.${versionPatch} Release"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -75,10 +75,17 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
+    //Android Support dependencies
     implementation 'com.android.support:appcompat-v7:25.4.0'
     implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+
+    //CottaCush Commons Library
     implementation 'com.github.CottaCush:AndroidCommons:v1.1.2'
+
+    //Dagger and UnitTest Dependencies
     testImplementation 'junit:junit:4.12'
+    implementation'com.google.dagger:dagger:2.14.1'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.14.1'
 }
 
 allprojects {
