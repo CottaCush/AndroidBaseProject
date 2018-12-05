@@ -123,8 +123,11 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
     }
 
     @Override
-    public void hideKeyboard(){// Check if no view has focus:
-         View view = this.getCurrentFocus(); if (view != null) { InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE); imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    public void hideKeyboard() {// Check if no view has focus:
+         View view = this.getCurrentFocus();
+         if (view != null) {
+             InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
          }}
 
     @Override
