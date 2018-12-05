@@ -158,7 +158,6 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
     public void setDrawerIconToHome() {
 
     }
-
         /*
     The below  methods can be called from any Activity
     that implements BaseView and extends from this Activity.
