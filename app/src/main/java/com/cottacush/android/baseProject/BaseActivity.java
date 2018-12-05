@@ -128,7 +128,8 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
          if (view != null) {
              InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
              imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
-         }}
+         }
+    }
 
     @Override
     public void onUnknownError(String errorMessage) {
