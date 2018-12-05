@@ -3,7 +3,7 @@
 echo "Running static analysis..."
 
 
-curl ./gradlew checkstyle
+./gradlew checkstyle
 
 status=$?
 
