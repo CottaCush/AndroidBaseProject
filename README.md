@@ -30,8 +30,9 @@ architecture for mobile development, it is also suggested to follow the packagin
    - do ```mkdir config && cd "$_"```
    ( You can also do  ```mkdir config ``` then subsequently ```cd config``` or whichever way is convenient for you to create the config directory and cd into it)
  - do  ``` curl -L -O https://link/to/raw/baseproject/checkstyle.xml ```
-  and  ``` curl -L -O https://link/to/raw/baseproject/prepush-checks.sh ``` to download the checkstyle and prepush script respectively to your config directory.
--  Move on to next sets of instructions.
+  and  ``` curl -L -O https://link/to/raw/baseproject/prepush-checks.sh ``` to download the checkstyle and prepush script respectively into your config directory.
+-   In your root directory do ```chmod u+x config/prepush-checks.sh```
+- Then do ```ln -s  $PWD/config/prepush-checks.sh    .git/hooks/pre-push```
 
      <h5>For fresh projects</h5>
 
