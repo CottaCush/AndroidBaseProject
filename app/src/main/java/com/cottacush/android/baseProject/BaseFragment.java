@@ -29,7 +29,8 @@ import butterknife.Unbinder;
 /**
  * A simple {@link Fragment} subclass.
  */
-public abstract class BaseFragment<T extends BasePresenter> extends Fragment implements BaseView<T> {
+public abstract class BaseFragment<T extends BasePresenter>
+        extends Fragment implements BaseView<T> {
 
     private Unbinder unbinder;
     private int timeOutErrResourceId;
@@ -90,7 +91,7 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment imp
 
     @Override
     public void showSnackBarMessage(View view, String message) {
-        MessageUtils.showMessage(view,message);
+        MessageUtils.showMessage(view, message);
     }
 
     @Override
@@ -128,7 +129,8 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment imp
 
         private EditText editText;
 
-        public DatePickerFragment() {}
+        public DatePickerFragment() {
+        }
 
         @SuppressLint("ValidFragment")
         public DatePickerFragment(EditText editText) {
@@ -149,7 +151,8 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment imp
             int month = calendar.get(Calendar.MONTH);
             int day = calendar.get(Calendar.DAY_OF_MONTH);
             // Create a new instance of DatePickerDialog and return it
-            DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(), this, year, month, day);
+            DatePickerDialog datePickerDialog =
+                    new DatePickerDialog(getActivity(), this, year, month, day);
             datePickerDialog.getDatePicker().setMinDate(calendar.getTimeInMillis());
             return datePickerDialog;
         }
