@@ -31,6 +31,8 @@ architecture for mobile development, it is also suggested to follow the packagin
    ( You can also do  ```mkdir config ``` then subsequently ```cd config``` or whichever way is convenient for you to create the config directory and cd into it)
  - do  ``` curl -L -O https://link/to/raw/baseproject/checkstyle.xml ```
   and  ``` curl -L -O https://link/to/raw/baseproject/prepush-checks.sh ``` to download the checkstyle and prepush script respectively into your config directory.
+  - In your ```app/build.gradle``` file, add the line ```apply from: '../config/quality.gradle'``` at the top just below ```apply plugin: 'com.android.application'```
+  - In your project's ```build.gradle``` file, add the checkstyle dependency ```'com.puppycrawl.tools:checkstyle:7.1.2'```
 -   In your root directory do ```chmod u+x config/prepush-checks.sh```
 - Then do ```ln -s  $PWD/config/prepush-checks.sh    .git/hooks/pre-push```
 
